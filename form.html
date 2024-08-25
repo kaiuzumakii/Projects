@@ -1,0 +1,92 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Form</title>
+        <style>
+            body
+            {
+                background-image: url('https://images.unsplash.com/photo-1645433395129-25f8c7a4b05b?q=80&w=1935&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D.jpg');
+                background-position: 0%;
+                background-repeat: repeat;
+                background-attachment: fixed;
+                background-size: cover;
+            }
+            div.transbox{
+                margin: 15%;
+                background-color: #ffff;
+                background-position: 0%;
+                background-size: contain;
+                border:1px solid black;
+                opacity: 0.5;
+                background-blend-mode: overlay;
+            }
+            h1  
+            {
+                text-align:center;
+            }
+            h1.round3
+            {
+                border:3px solid rgb(0, 0, 0);
+                border-top-style: double;
+                border-radius: 43957000px;
+                padding: 4px;
+                border-width:thin;
+            }
+        </style>
+        <script>
+            function validationform()
+            {
+                var email=document.forms["MyForm"]["email"].value;
+                var mobile=document.forms["MyForm"]["mb"].value;
+                var name=document.forms["MyForm"]["nam"].value
+            
+                var emailRegEx=/^[a-zA-Z0-9]+@[a-zA-z0-9]+\.[a-zA-Z]{2,4}$/;
+                var mobileRegEx=/^[0-9]{10}$/;
+
+                if(name==='')
+                {
+                    alert("Name Must Be Filled");
+                    return false;
+                }
+                
+                if(!emailRegEx.test(email))
+                {
+                    alert("invalid Email");
+                    return false;
+                }
+
+                if(!mobileRegEx.test(mobile))
+                {
+                    alert("Mobile Number Must Be 10 Digits")
+                    return false
+                }
+                return true;
+            }
+        </script>
+    </head>
+    <body>
+        <center>
+        <br><br><br>
+        <div class="transbox">
+        <form name="MyForm" onsubmit="return validationform()" method="post">
+        <h1 class ="round3">Form</h1>
+        Name: <input type="text" name="nam"><br><br>
+        Email: <input type="text" name="email"><br><br>
+        Number: <input type="text" name="mb"><br><br>
+        Description: <input type="text" name="des"><br><br>
+        Date: <input type="date" name="da"><br><br>
+        Gender:
+        <input type="radio" name="gender" value="male">Male
+        <input type="radio" name="gender" value="female">Female<br><br>
+        Hobbies:
+        <input type="checkbox" name="Hobbies" value="gaming">Gaming
+        <input type="checkbox" name="Hobbies" value="photography">Photography<br>
+        <input type="checkbox" name="Hobbies" value="Cooking">Cooking
+        <input type="checkbox" name="Hobbies" value="Music">Music<br><br>
+        <input type="submit" name="submit" value="submit"><br><br>
+        </form>
+        </div>
+        </center>
+    </body>
+</html>
+
